@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">SGMovie</string>
+    <string name="function_info">Synopsis</string>
+    <string name="function_trailer">Trailer</string>
+    <string name="function_review">Reviews</string>
+    <string name="function_booking">Ticket</string>
+    <string name="search_bar">Movie Name Here</string>
+    <string name="search_button">Search</string>
+
+</resources>
