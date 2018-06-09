@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class ReviewFragment extends Fragment {
 
@@ -21,7 +23,17 @@ public class ReviewFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.review, container, false);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        Button btnTEST = (Button) rootView.findViewById(R.id.btnTEST);
+
+        btnTEST.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast temp = Toast.makeText(getActivity(), "TESTING BUTTON REVIEW PAGE",Toast.LENGTH_SHORT);
+                temp.show();
+            }
+        });
+
+        return rootView;
     }
 
 }

@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-public class FunctionMain extends AppCompatActivity{
+public class FunctionMain extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -25,18 +25,24 @@ public class FunctionMain extends AppCompatActivity{
 
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        // Set up view pager
+        setupViewPager(viewPager);
 
-        // Create an adapter that knows which fragment should be shown on each page
-        FunctionAdapter adapter = new FunctionAdapter(FunctionMain.this, getSupportFragmentManager());
-
-        // Set the adapter onto the view pager
-        viewPager.setAdapter(adapter);
 
         // Find the tab layout that shows the tabs
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-
         // Connect the tab layout with the view pager
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        FunctionAdapter adapter = new FunctionAdapter(FunctionMain.this, getSupportFragmentManager());
+        adapter.addFragment(new TicketFragment(), "TICKET");
+        adapter.addFragment(new InfoFragment(), "SYNOPSIS");
+        adapter.addFragment(new TrailerFragment(), "TRAILER");
+        adapter.addFragment(new ReviewFragment(), "REVIEW");
+
+        viewPager.setAdapter(adapter);
     }
 
 }

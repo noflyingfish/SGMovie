@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity{
         // Fling up for fast swipe, same as swipe up
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            // 1st touch has a smaller Y coord than 2nd touch
-            if(e1.getY() < e2.getY()) {
+            // swipe down for intent
+            if(e1.getY() > e2.getY()) {
                 Intent nowshowing = new Intent(MainActivity.this, NowShowing.class);
                 startActivity(nowshowing);
             }
