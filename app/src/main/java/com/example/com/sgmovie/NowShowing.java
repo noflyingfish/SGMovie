@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -33,7 +34,7 @@ public class NowShowing extends AppCompatActivity {
 
         // setting the adapter for the nowshowing list
         NowShowingAdapter adapter = new NowShowingAdapter(NowShowing.this, movieList);
-        ListView listView = (ListView) findViewById(R.id.list);
+        final ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
 
         // set each list view to be clickable
@@ -41,15 +42,16 @@ public class NowShowing extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //get movie in "position", to pass to a fragment, it needs to be in a bundle
-                //Bundle bundle = new Bundle();
-                //bundle.putParcelable("movie", movieList.get(position));
-                //InfoFragment fragment = new InfoFragment();
-                //fragment.setArguments(bundle);
 
                 // launch the function page for that movie
                 Intent intent = new Intent(NowShowing.this, FunctionMain.class);
                 intent.putExtra("movie", movieList.get(position));
+
+                if(movieList.get(position) == null)
+                    Log.v("EEEEEEEEEE", "passsed?");
+                else
+                    Log.v("FFFFFFFFFFFFFF", "pos in arraylist"+position );
+
                 startActivity(intent);
             }
         });

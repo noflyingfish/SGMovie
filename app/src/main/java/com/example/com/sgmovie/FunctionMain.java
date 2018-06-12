@@ -1,5 +1,6 @@
 package com.example.com.sgmovie;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -16,10 +17,13 @@ public class FunctionMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.function_main);
 
-        Log.v("1", "check create function main xml");
-
         // getting the movie object passed from the main page
-        Movie movie = getIntent().getParcelableExtra("movie");
+        Movie movie = getIntent().getExtras().getParcelable("movie");
+
+        if(movie == null)
+            Log.v("CCCCCCCCCCCCCC", "FAIL");
+        else
+            Log.v("DDDDDDDDDDDDDD", "PASS");
 
         // set the title of the page to the movie name
         setTitle(movie.getTitle());
@@ -33,6 +37,14 @@ public class FunctionMain extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         // Connect the tab layout with the view pager
         tabLayout.setupWithViewPager(viewPager);
+
+        // pass the movie object into the infofragment
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("movie", movie);
+        InfoFragment frag = new InfoFragment();
+        frag.setArguments(bundle);
+        //getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,InfoFragment).commit();
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
