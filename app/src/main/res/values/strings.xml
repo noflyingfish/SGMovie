@@ -7,5 +7,10 @@
     <string name="function_booking">Ticket</string>
     <string name="search_bar">Movie Name Here</string>
     <string name="search_button">Search</string>
-
+    <string name="swipe_up">Swipe up to check out Now Showing Movie</string>
+    <string name="genre">Genre:</string>
+    <string name="director">Director:</string>
+    <string name="cast">Cast:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="rating">Rating:</string>
 </resources>

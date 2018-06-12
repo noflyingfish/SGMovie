@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-        <!-- Height of each list item -->
-        <dimen name="list_item_height">72dp</dimen>
+    <!-- Height of each list item -->
+    <dimen name="list_item_height">88dp</dimen>
+    <dimen name="list_item_width">72dp</dimen>
 
+    <!-- Size of each word in buttom -->
+    <dimen name="button_word_size">24sp</dimen>
 
-        <!-- Size of each word in buttom -->
-        <dimen name="button_word_size">24sp</dimen>
+    <dimen name="swipe_up">16sp</dimen>
 </resources>
