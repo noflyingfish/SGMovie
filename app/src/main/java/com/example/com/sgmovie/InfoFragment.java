@@ -18,15 +18,17 @@ import android.widget.Toast;
 
 public class InfoFragment extends Fragment{
 
-    private Movie movie;
+    // collect the movie object from public static variable in FunctionMain
+    private Movie movie = FunctionMain.currMovie;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.info, container, false);
-        Bundle bundle = getArguments();
-        movie = bundle.getParcelable("movie");
+
+        // replace by public static variable, till further notice
+        //movie = getArguments().getParcelable("movie");
 
         if(movie == null)
             Log.v("AAAAAAAAAAAA", "FAIL");

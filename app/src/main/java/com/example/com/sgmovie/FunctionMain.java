@@ -12,21 +12,23 @@ import android.widget.TextView;
 
 public class FunctionMain extends AppCompatActivity {
 
+    public static Movie currMovie; // used to pass the varible into InfoFragment
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.function_main);
 
         // getting the movie object passed from the main page
-        Movie movie = getIntent().getExtras().getParcelable("movie");
+        currMovie = getIntent().getExtras().getParcelable("movie");
 
-        if(movie == null)
+        if(currMovie == null)
             Log.v("CCCCCCCCCCCCCC", "FAIL");
         else
             Log.v("DDDDDDDDDDDDDD", "PASS");
 
         // set the title of the page to the movie name
-        setTitle(movie.getTitle());
+        setTitle(currMovie.getTitle());
 
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -38,13 +40,12 @@ public class FunctionMain extends AppCompatActivity {
         // Connect the tab layout with the view pager
         tabLayout.setupWithViewPager(viewPager);
 
-        // pass the movie object into the infofragment
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("movie", movie);
-        InfoFragment frag = new InfoFragment();
-        frag.setArguments(bundle);
-        //getSupportFragmentManager().beginTransaction().replace(R.id.viewpager,InfoFragment).commit();
-
+        // pass the movie object into the infofragment, replaced by the public static variable.
+        //Bundle bundle = new Bundle();
+        //bundle.putParcelable("movie", movie);
+        //if(bundle != null) Log.v("QQQQQQ", "bundle !empty @ function main");
+        //InfoFragment frag = new InfoFragment();
+        //frag.setArguments(bundle);
     }
 
     private void setupViewPager(ViewPager viewPager) {
